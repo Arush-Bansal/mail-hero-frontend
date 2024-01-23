@@ -68,14 +68,14 @@ export default function App() {
             },
             body: JSON.stringify(formData)
           }
-          const url = 'http://edc-mass-mailer.ap-south-1.elasticbeanstalk.com/api/sendMail';
+          const url = 'https://edc-mail-hero.onrender.com';
           await fetch(url, requestOptions)
             .then((response) => response.json())
             .then(async (data) => {
               console.log(data);
               if (data.status === 200) {
                 setSendResponse(i + 1 + " : " + data.message);
-                await timer(100);
+                await timer(2000 + Math.random() * 6000);
                 i++
               }
               else {
